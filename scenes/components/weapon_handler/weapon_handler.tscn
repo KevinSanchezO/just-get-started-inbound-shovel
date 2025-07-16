@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtimklo6jfqg8"]
+
+[ext_resource type="Script" uid="uid://rnqxj8cjiciu" path="res://scenes/components/weapon_handler/weapon_handler.gd" id="1_5hmqh"]
+
+[node name="WeaponHandler" type="Node3D"]
+script = ExtResource("1_5hmqh")

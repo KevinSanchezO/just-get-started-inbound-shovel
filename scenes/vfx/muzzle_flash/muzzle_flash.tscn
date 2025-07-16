@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj18ltpobi6vj"]
+
+[ext_resource type="Texture2D" uid="uid://crdi5d5wcsjvy" path="res://scenes/vfx/muzzle_flash/muzzle_flash_1.png" id="1_1bdm5"]
+[ext_resource type="Script" uid="uid://sc35uoi67rnq" path="res://scenes/vfx/muzzle_flash/muzzle_flash.gd" id="1_x3rme"]
+
+[node name="MuzzleFlash" type="Sprite3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+modulate = Color(1, 1, 1, 0.745098)
+texture_filter = 0
+texture = ExtResource("1_1bdm5")
+script = ExtResource("1_x3rme")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://rvtfy4ss5oe5"]
+
+[ext_resource type="Script" uid="uid://chtutsxqiqm2r" path="res://scenes/vfx/bullet_trail/bullet_trail.gd" id="1_nix3s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nix3s"]
+resource_local_to_scene = true
+transparency = 1
+heightmap_enabled = true
+
+[node name="BulletTrail" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_nix3s")
+script = ExtResource("1_nix3s")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true

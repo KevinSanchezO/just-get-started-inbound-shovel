@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0ww1ipyxc8w5"]
+
+[ext_resource type="PackedScene" uid="uid://b3il70yqipl0r" path="res://scenes/game_objects/weapons/melee_weapons/melee_weapon/melee_weapon.tscn" id="1_qyja5"]
+[ext_resource type="Script" uid="uid://c0djb7u6jtmeu" path="res://scenes/game_objects/weapons/melee_weapons/spear/spear.gd" id="2_y2qv7"]
+[ext_resource type="Texture2D" uid="uid://dil5iwwaaakgt" path="res://scenes/game_objects/weapons/melee_weapons/spear/spear.png" id="3_yk8ji"]
+
+[node name="Spear" instance=ExtResource("1_qyja5")]
+script = ExtResource("2_y2qv7")
+hurtbox_size = Vector3(1, 1, 2.2)
+weapon_name = "Ronso Spear"
+fire_rate_value = 1.5
+trauma = 0.8
+
+[node name="Sprite3D" parent="Models" index="0"]
+transform = Transform3D(-7.91465e-08, -1.35794e-08, 1.5, -1.06066, 1.06066, -4.63629e-08, -1.06066, -1.06066, -6.55671e-08, 0, 0, -0.04)
+texture = ExtResource("3_yk8ji")

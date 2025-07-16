@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cttbi3jippi2n"]
+
+[ext_resource type="PackedScene" uid="uid://bsnebuboq7mg8" path="res://scenes/game_objects/weapons/range_weapons/range_weapon/range_weapon.tscn" id="1_hjoff"]
+[ext_resource type="Script" uid="uid://cruve1dimsi0d" path="res://scenes/game_objects/weapons/range_weapons/crossbow/crossbow.gd" id="2_b5r6q"]
+[ext_resource type="Texture2D" uid="uid://b67ui676bpy17" path="res://scenes/game_objects/weapons/range_weapons/crossbow/crossbow.png" id="3_wgtca"]
+[ext_resource type="Texture2D" uid="uid://bi64w4nf8yom6" path="res://scenes/vfx/charge_vfx/charging.png" id="4_rj4fr"]
+[ext_resource type="Texture2D" uid="uid://bv0s5y3e7psip" path="res://scenes/vfx/charge_vfx/charged.png" id="5_rjcs8"]
+
+[node name="Crossbow" instance=ExtResource("1_hjoff")]
+script = ExtResource("2_b5r6q")
+charged_limit = 50.0
+increase_value = 1.0
+projectiles_per_shoot = 1
+spread = 0.01
+max_chamber = 100
+recoil = Vector3(4, 0.5, 0)
+weapon_name = "Zodiac Crossbow"
+trauma = 2.0
+
+[node name="Sprite3D" parent="Models" index="0"]
+transform = Transform3D(-6.55671e-08, 1.5, -6.55671e-08, 0, -6.55671e-08, -1.5, -1.5, -6.55671e-08, 2.86603e-15, 0, 0, 0.00996415)
+texture = ExtResource("3_wgtca")
+
+[node name="Charging" type="Sprite3D" parent="Models" index="1"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.1)
+texture_filter = 0
+texture = ExtResource("4_rj4fr")
+
+[node name="Charged" type="Sprite3D" parent="Models" index="2"]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -0.1)
+texture_filter = 0
+texture = ExtResource("5_rjcs8")
+
+[node name="Spawner" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.102299)
+visible = false

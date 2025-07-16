@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://demyvcjcnvi8g"]
+
+[ext_resource type="PackedScene" uid="uid://b3il70yqipl0r" path="res://scenes/game_objects/weapons/melee_weapons/melee_weapon/melee_weapon.tscn" id="1_o0ggp"]
+[ext_resource type="Texture2D" uid="uid://b2jb7vk8nhv5e" path="res://scenes/game_objects/weapons/melee_weapons/shovel/shovel.png" id="2_jewdi"]
+[ext_resource type="Script" uid="uid://bcuy2mdonjbc6" path="res://scenes/game_objects/weapons/melee_weapons/shovel/shovel.gd" id="2_w2owh"]
+
+[node name="Shovel" instance=ExtResource("1_o0ggp")]
+script = ExtResource("2_w2owh")
+hurtbox_size = Vector3(1.5, 1.5, 1.5)
+weapon_name = "Trench Shovel"
+fire_rate_value = 0.7
+trauma = 0.8
+
+[node name="Sprite3D" parent="Models" index="0"]
+texture = ExtResource("2_jewdi")

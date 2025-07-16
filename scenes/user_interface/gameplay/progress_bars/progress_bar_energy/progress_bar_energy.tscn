@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://5r17urjmqguo"]
+
+[ext_resource type="PackedScene" uid="uid://dhiwma1l2hepk" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_status/progress_bar_status.tscn" id="1_f0iah"]
+
+[node name="ProgressBarEnergy" instance=ExtResource("1_f0iah")]
+
+[node name="BarLeft" parent="." index="0"]
+tint_progress = Color(0, 0.533333, 0.219608, 1)
+
+[node name="BarRight" parent="." index="1"]
+tint_progress = Color(0, 0.535238, 0.218621, 1)

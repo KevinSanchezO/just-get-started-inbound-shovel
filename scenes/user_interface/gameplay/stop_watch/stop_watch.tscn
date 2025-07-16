@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwd0bdrvm5mqy"]
+
+[ext_resource type="Script" uid="uid://pfm1e2mybgci" path="res://scenes/user_interface/gameplay/stop_watch/stop_watch.gd" id="1_gkhfx"]
+[ext_resource type="LabelSettings" uid="uid://d18ip1ak2mg3j" path="res://resources/styles/label_settings.tres" id="2_mifxh"]
+
+[sub_resource type="Theme" id="Theme_gkhfx"]
+
+[node name="StopWatch" type="HBoxContainer"]
+script = ExtResource("1_gkhfx")
+
+[node name="Minutes" type="Label" parent="."]
+layout_mode = 2
+theme = SubResource("Theme_gkhfx")
+text = "00:"
+label_settings = ExtResource("2_mifxh")
+horizontal_alignment = 2
+
+[node name="Seconds" type="Label" parent="."]
+layout_mode = 2
+text = "00:"
+label_settings = ExtResource("2_mifxh")
+horizontal_alignment = 2
+
+[node name="MSeconds" type="Label" parent="."]
+layout_mode = 2
+text = "000"
+label_settings = ExtResource("2_mifxh")
+horizontal_alignment = 2

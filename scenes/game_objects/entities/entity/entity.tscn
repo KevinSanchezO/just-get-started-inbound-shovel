@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1miamweygiot"]
+
+[ext_resource type="PackedScene" uid="uid://bet2llkn5xea8" path="res://scenes/components/velocity3d/velocity_3d.tscn" id="1_ubpkh"]
+[ext_resource type="Script" uid="uid://b3gw8yqf0l7pc" path="res://scenes/game_objects/entities/entity/entity.gd" id="1_x13fo"]
+[ext_resource type="PackedScene" uid="uid://dajopoqyp1ruk" path="res://scenes/components/health/health.tscn" id="3_2vqxr"]
+[ext_resource type="PackedScene" uid="uid://b80uvyrtjwvyb" path="res://scenes/components/stun/stun.tscn" id="4_sf55g"]
+[ext_resource type="PackedScene" uid="uid://855kxdxo3hin" path="res://scenes/components/hitbox/hitbox.tscn" id="4_w8sj4"]
+
+[node name="Entity" type="CharacterBody3D"]
+floor_stop_on_slope = false
+script = ExtResource("1_x13fo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="ModelContainer" type="Node3D" parent="."]
+
+[node name="AudioContainer" type="Node3D" parent="."]
+
+[node name="Velocity3d" parent="." instance=ExtResource("1_ubpkh")]
+
+[node name="Health" parent="." instance=ExtResource("3_2vqxr")]
+
+[node name="Stun" parent="." instance=ExtResource("4_sf55g")]
+
+[node name="Hitbox" parent="." node_paths=PackedStringArray("health", "damage_memory") instance=ExtResource("4_w8sj4")]
+health = NodePath("../Health")
+damage_memory = NodePath("../Stun")

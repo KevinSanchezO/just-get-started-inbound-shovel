@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjlm8mcqyik3d"]
+
+[ext_resource type="PackedScene" uid="uid://dhiwma1l2hepk" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_status/progress_bar_status.tscn" id="1_fd5vb"]
+[ext_resource type="Texture2D" uid="uid://d0dpar63sdeyb" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_mirror/fill_left.png" id="2_i80pt"]
+[ext_resource type="Texture2D" uid="uid://wgqcmiylw2il" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_mirror/outline_left.png" id="3_mdrjm"]
+[ext_resource type="Texture2D" uid="uid://c2cr2lf67f666" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_mirror/fill_right.png" id="4_vcvm2"]
+[ext_resource type="Texture2D" uid="uid://ccot1pkw16jmf" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_mirror/outline_right.png" id="5_c4t6t"]
+
+[node name="ProgressBarMirror" instance=ExtResource("1_fd5vb")]
+size_flags_horizontal = 3
+
+[node name="BarLeft" parent="." index="0"]
+nine_patch_stretch = true
+texture_under = ExtResource("2_i80pt")
+texture_over = ExtResource("3_mdrjm")
+texture_progress = ExtResource("2_i80pt")
+
+[node name="BarRight" parent="." index="1"]
+custom_minimum_size = Vector2(0, 16)
+nine_patch_stretch = true
+texture_under = ExtResource("4_vcvm2")
+texture_over = ExtResource("5_c4t6t")
+texture_progress = ExtResource("4_vcvm2")

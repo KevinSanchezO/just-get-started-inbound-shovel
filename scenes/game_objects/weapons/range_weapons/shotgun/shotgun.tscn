@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfi5ujmokdwjj"]
+
+[ext_resource type="PackedScene" uid="uid://bsnebuboq7mg8" path="res://scenes/game_objects/weapons/range_weapons/range_weapon/range_weapon.tscn" id="1_joixs"]
+[ext_resource type="Script" uid="uid://c76f5dp04ngf" path="res://scenes/game_objects/weapons/range_weapons/shotgun/shotgun.gd" id="2_bmq1l"]
+[ext_resource type="Texture2D" uid="uid://d1up4q40n1ote" path="res://scenes/game_objects/weapons/range_weapons/shotgun/shotgun.png" id="3_1x057"]
+
+[node name="Shotgun" instance=ExtResource("1_joixs")]
+script = ExtResource("2_bmq1l")
+projectiles_per_shoot = 8
+spread = 0.105
+max_ammo = 20
+max_chamber = 2
+reload_time = 3.0
+recoil = Vector3(4, 0.2, 0)
+weapon_name = "Boom Stick"
+trauma = 2.55
+
+[node name="Sprite3D" parent="Models" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.0199243, 0)
+texture = ExtResource("3_1x057")
+
+[node name="Spawner" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0839576)

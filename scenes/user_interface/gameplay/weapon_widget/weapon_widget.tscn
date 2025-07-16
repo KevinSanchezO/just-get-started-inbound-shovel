@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddpvw62gmgpbd"]
+
+[ext_resource type="Script" uid="uid://b2tismlr72wgp" path="res://scenes/user_interface/gameplay/weapon_widget/weapon_widget.gd" id="1_i7cjm"]
+[ext_resource type="PackedScene" uid="uid://bjlm8mcqyik3d" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_mirror/progress_bar_mirror.tscn" id="1_ukjoy"]
+[ext_resource type="FontFile" uid="uid://5lsjbw6sbj53" path="res://resources/fonts/DungeonFont.ttf" id="2_uhmme"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i7cjm"]
+font = ExtResource("2_uhmme")
+font_size = 24
+
+[node name="WeaponWidget" type="VBoxContainer"]
+custom_minimum_size = Vector2(227, 90)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_i7cjm")
+
+[node name="Rounds" type="RichTextLabel" parent="."]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_uhmme")
+theme_override_fonts/mono_font = ExtResource("2_uhmme")
+theme_override_fonts/italics_font = ExtResource("2_uhmme")
+theme_override_fonts/bold_italics_font = ExtResource("2_uhmme")
+theme_override_fonts/bold_font = ExtResource("2_uhmme")
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "666"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="WeaponName" type="Label" parent="."]
+layout_mode = 2
+text = "WEAPON NAME"
+label_settings = SubResource("LabelSettings_i7cjm")
+horizontal_alignment = 1
+
+[node name="ProgressBarMirror" parent="." instance=ExtResource("1_ukjoy")]
+layout_mode = 2

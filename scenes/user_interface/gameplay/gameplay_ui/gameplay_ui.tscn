@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjodgn38dxucp"]
+
+[ext_resource type="Script" uid="uid://denmdp6of5nwg" path="res://scenes/user_interface/gameplay/gameplay_ui/gameplay_ui.gd" id="1_nn38t"]
+[ext_resource type="PackedScene" uid="uid://dwd0bdrvm5mqy" path="res://scenes/user_interface/gameplay/stop_watch/stop_watch.tscn" id="2_kr4kx"]
+[ext_resource type="PackedScene" uid="uid://bllidhtw8scci" path="res://scenes/user_interface/gameplay/cross_hair/cross_hair.tscn" id="3_h3cbj"]
+[ext_resource type="PackedScene" uid="uid://qwa0isdf4bps" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_health/progress_bar_health.tscn" id="3_kr4kx"]
+[ext_resource type="PackedScene" uid="uid://ddpvw62gmgpbd" path="res://scenes/user_interface/gameplay/weapon_widget/weapon_widget.tscn" id="4_7fkyj"]
+[ext_resource type="PackedScene" uid="uid://5r17urjmqguo" path="res://scenes/user_interface/gameplay/progress_bars/progress_bar_energy/progress_bar_energy.tscn" id="4_osmpv"]
+
+[node name="GameplayUI" type="CanvasLayer"]
+script = ExtResource("1_nn38t")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StopWatch" parent="MarginContainer/Control" instance=ExtResource("2_kr4kx")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.5
+offset_right = 59.5
+offset_bottom = 33.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="CrossHair" parent="MarginContainer/Control" instance=ExtResource("3_h3cbj")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GeneralInfo" type="HBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 20
+
+[node name="WeaponWidget" parent="MarginContainer/Control/GeneralInfo" instance=ExtResource("4_7fkyj")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StatusContainer" type="VBoxContainer" parent="MarginContainer/Control/GeneralInfo"]
+layout_mode = 2
+
+[node name="ProgressBarHealth" parent="MarginContainer/Control/GeneralInfo/StatusContainer" instance=ExtResource("3_kr4kx")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProgressBarEnergy" parent="MarginContainer/Control/GeneralInfo/StatusContainer" instance=ExtResource("4_osmpv")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WeaponWidget2" parent="MarginContainer/Control/GeneralInfo" instance=ExtResource("4_7fkyj")]
+unique_name_in_owner = true
+layout_mode = 2

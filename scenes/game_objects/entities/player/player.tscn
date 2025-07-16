@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://2viqkqitv2hu"]
+
+[ext_resource type="PackedScene" uid="uid://b1miamweygiot" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_w3y43"]
+[ext_resource type="Script" uid="uid://f27a4utmpklb" path="res://scenes/game_objects/entities/player/player.gd" id="2_3l5kd"]
+[ext_resource type="PackedScene" uid="uid://cglwiwbqt0gmt" path="res://scenes/components/camera_container/camera_container.tscn" id="3_3l5kd"]
+[ext_resource type="PackedScene" uid="uid://btwacv7207unk" path="res://scenes/components/game_camera/game_camera.tscn" id="4_2ohm5"]
+[ext_resource type="PackedScene" uid="uid://ckll20bsmctab" path="res://scenes/components/hurtbox/hurtbox.tscn" id="6_k2xsl"]
+[ext_resource type="PackedScene" uid="uid://cysxlycxrnowi" path="res://scenes/components/hitscan/hitscan.tscn" id="7_g8od5"]
+[ext_resource type="PackedScene" uid="uid://dtimklo6jfqg8" path="res://scenes/components/weapon_handler/weapon_handler.tscn" id="7_wsv6r"]
+[ext_resource type="PackedScene" uid="uid://5bnvlny3g2xc" path="res://scenes/components/energy/energy.tscn" id="8_g8od5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w3y43"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w3y43"]
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k2xsl"]
+size = Vector3(2, 1, 2.5)
+
+[node name="Player" groups=["player"] instance=ExtResource("1_w3y43")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_3l5kd")
+weight = 0.0
+mouse_sensitivity = 0.005
+tilt = 3.0
+time_tilt = 0.05
+weapon_rotation = 0.001
+headbob_frequency = 2.0
+headbob_amplitude = 0.08
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_w3y43")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="Velocity3d" parent="." index="3"]
+max_fast_speed = 12.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_w3y43")
+debug_color = Color(0.88437, 0, 0.204544, 0.42)
+
+[node name="Energy" parent="." index="7" instance=ExtResource("8_g8od5")]
+unique_name_in_owner = true
+
+[node name="Head" type="Node3D" parent="." index="8"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="ViewContainer" type="Node3D" parent="Head" index="0"]
+unique_name_in_owner = true
+
+[node name="CameraContainer" parent="Head/ViewContainer" index="0" instance=ExtResource("3_3l5kd")]
+unique_name_in_owner = true
+
+[node name="GameCamera" parent="Head/ViewContainer/CameraContainer" index="0" instance=ExtResource("4_2ohm5")]
+unique_name_in_owner = true
+
+[node name="Hurtbox" parent="Head/ViewContainer/CameraContainer/GameCamera" index="0" instance=ExtResource("6_k2xsl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 16
+collision_mask = 3
+damage = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/ViewContainer/CameraContainer/GameCamera/Hurtbox" index="0"]
+shape = SubResource("BoxShape3D_k2xsl")
+debug_color = Color(0.685793, 0.500521, 0, 0.42)
+
+[node name="Hitscan" parent="Head/ViewContainer/CameraContainer/GameCamera" index="1" instance=ExtResource("7_g8od5")]
+unique_name_in_owner = true
+
+[node name="WeaponHandler" parent="Head/ViewContainer/CameraContainer/GameCamera" index="2" node_paths=PackedStringArray("entity", "hurtbox_melee", "hitscan") instance=ExtResource("7_wsv6r")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, -0.08, -0.222)
+entity = NodePath("../../../../..")
+hurtbox_melee = NodePath("../Hurtbox")
+hitscan = NodePath("../Hitscan")

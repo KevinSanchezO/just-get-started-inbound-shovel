@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cglwiwbqt0gmt"]
+
+[ext_resource type="Script" uid="uid://sehrv23o8mml" path="res://scenes/components/camera_container/camera_container.gd" id="1_55oru"]
+
+[node name="CameraContainer" type="Node3D"]
+script = ExtResource("1_55oru")
+snappiness = 0.8
+returnSpeed = 10.0

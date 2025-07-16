@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bllidhtw8scci"]
+
+[ext_resource type="Script" uid="uid://dgaf2m3mw8iy" path="res://scenes/user_interface/gameplay/cross_hair/cross_hair.gd" id="1_oang3"]
+[ext_resource type="Texture2D" uid="uid://c5fkfhn5vfxnd" path="res://scenes/user_interface/gameplay/cross_hair/cross_hair.png" id="1_qyxcc"]
+
+[node name="CrossHair" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_oang3")
+
+[node name="Texture" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_qyxcc")

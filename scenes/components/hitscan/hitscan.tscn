@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cysxlycxrnowi"]
+
+[ext_resource type="Script" uid="uid://x5kb3abhd16m" path="res://scenes/components/hitscan/hitscan.gd" id="1_smqtv"]
+
+[node name="Hitscan" type="Marker3D"]
+script = ExtResource("1_smqtv")
+ray_cast_mask = 3
