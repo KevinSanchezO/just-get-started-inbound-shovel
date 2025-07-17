@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 Camera="*res://scenes/autoloads/camera/camera.tscn"
 WeaponDB="*res://scenes/autoloads/weapon_db/weapon_db.tscn"
 GameplayInterface="*res://scenes/autoloads/gameplay_interface/gameplay_interface.tscn"
+HitMark="*res://scenes/autoloads/hit_mark/hit_mark.tscn"
 
 [display]
 

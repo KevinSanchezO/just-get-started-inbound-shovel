@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://m2nk7b3e5upn"]
+
+[ext_resource type="PackedScene" uid="uid://b1miamweygiot" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_v278a"]
+[ext_resource type="Script" uid="uid://ss42gu20lwi4" path="res://scenes/game_objects/entities/enemies/enemy/enemy.gd" id="2_xriay"]
+[ext_resource type="PackedScene" uid="uid://bfyattjom676k" path="res://scenes/components/entity_navigation/entity_navigation.tscn" id="3_v1vnm"]
+
+[node name="Enemy" instance=ExtResource("1_v278a")]
+script = ExtResource("2_xriay")
+rotation_speed = 0.15
+proximity_target_value = 6.0
+
+[node name="Hitbox" parent="." index="6"]
+collision_layer = 2
+collision_mask = 16
+
+[node name="EntityNavigation" parent="." index="7" instance=ExtResource("3_v1vnm")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]

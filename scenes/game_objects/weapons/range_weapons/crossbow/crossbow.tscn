@@ -16,6 +16,7 @@ max_chamber = 100
 recoil = Vector3(4, 0.5, 0)
 weapon_name = "Zodiac Crossbow"
 trauma = 2.0
+damage = 100.0
 
 [node name="Sprite3D" parent="Models" index="0"]
 transform = Transform3D(-6.55671e-08, 1.5, -6.55671e-08, 0, -6.55671e-08, -1.5, -1.5, -6.55671e-08, 2.86603e-15, 0, 0, 0.00996415)

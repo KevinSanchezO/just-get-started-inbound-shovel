@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://fcohygsdgusk"]
+
+[ext_resource type="PackedScene" uid="uid://m2nk7b3e5upn" path="res://scenes/game_objects/entities/enemies/enemy/enemy.tscn" id="1_vrj1w"]
+[ext_resource type="PackedScene" uid="uid://dpshlqgoxv4l4" path="res://scenes/game_objects/entities/enemies/bat/bat.gltf" id="2_1qigb"]
+[ext_resource type="Script" uid="uid://bm5lkkgxpn6c0" path="res://scenes/game_objects/entities/enemies/bat/bat.gd" id="2_h0r8q"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vrj1w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vrj1w"]
+radius = 0.7
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xj60l"]
+
+[node name="Bat" instance=ExtResource("1_vrj1w")]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("2_h0r8q")
+rotation_speed = 0.5
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_vrj1w")
+debug_color = Color(1, 1, 1, 0.42)
+
+[node name="BatModel" parent="ModelContainer" index="0" instance=ExtResource("2_1qigb")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="bat" parent="ModelContainer/BatModel/Node" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702686, 0)
+
+[node name="left_wing" parent="ModelContainer/BatModel/Node/bat" index="1"]
+transform = Transform3D(0.985365, -0.170459, 0, 0.170459, 0.985365, 0, 0, 0, 1, 0.125, 0.5, 0)
+
+[node name="right_wing" parent="ModelContainer/BatModel/Node/bat" index="2"]
+transform = Transform3D(0.985365, 0.170459, 0, -0.170459, 0.985365, 0, 0, 0, 1, -0.125, 0.5, 0)
+
+[node name="AnimationPlayer" parent="ModelContainer/BatModel" index="1"]
+autoplay = "idle"
+
+[node name="Velocity3d" parent="." index="3"]
+max_neutral_speed = 3.0
+
+[node name="Health" parent="." index="4"]
+max_health = 50.0
+
+[node name="Hitbox" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+shape = SubResource("SphereShape3D_vrj1w")
+debug_color = Color(0.996673, 0, 0.182052, 0.42)
+
+[node name="EntityNavigation" parent="." index="7"]
+radius_value = 1.0
+
+[node name="AnimationPlayer" parent="." index="8"]
+libraries = {
+&"": SubResource("AnimationLibrary_xj60l")
+}
+
+[node name="AttackTimer" type="Timer" parent="." index="9"]
+
+[editable path="ModelContainer/BatModel"]

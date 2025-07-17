@@ -18,6 +18,7 @@ class_name Player
 @export var headbob_amplitude := 0.08
 
 @onready var energy := $Energy as Energy
+@onready var poison := $Poison as Poison
 @onready var head := %Head as Node3D
 @onready var view_container := %ViewContainer as Node3D
 @onready var camera_container := %CameraContainer as CameraContainer
@@ -26,6 +27,8 @@ class_name Player
 @onready var hitscan := %Hitscan as Hitscan
 @onready var weapon_handler := %WeaponHandler as WeaponHandler
 
+var sprint_lock := false
+var sprint_input_pressed := false
 var headbob_time := 0.0
 var mouse_input : Vector2
 var on_ground : bool
@@ -46,6 +49,7 @@ func _ready() -> void:
 	
 	weapon_handler.ready_weapon_handler()
 	_set_gameplay_ui.call_deferred()
+	hurtbox_melee.disable()
 
 
 func _set_gameplay_ui() -> void:
@@ -96,8 +100,18 @@ func get_input_dir() -> Vector2:
 
 
 func _handle_sprint(input_dir:Vector2) -> void:
-	sprinting = Input.get_action_strength("sprint") and \
-		input_dir != Vector2.ZERO and energy.energy_value > 0
+	var sprint_pressed := Input.get_action_strength("sprint")
+	
+	if energy.energy_value == 0 and sprint_pressed:
+		sprint_lock = true
+	
+	if !sprint_pressed:
+		sprint_lock = false
+	
+	sprinting = sprint_pressed and \
+		!sprint_lock and \
+		input_dir != Vector2.ZERO and \
+		energy.energy_value > 0
 
 
 func _get_velocity() -> float:

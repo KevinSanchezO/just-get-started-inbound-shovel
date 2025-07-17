@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfyattjom676k"]
+
+[ext_resource type="Script" uid="uid://bcl37wltaecnh" path="res://scenes/components/entity_navigation/entity_navigation.gd" id="1_d5rhh"]
+
+[node name="EntityNavigation" type="Node3D"]
+script = ExtResource("1_d5rhh")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true

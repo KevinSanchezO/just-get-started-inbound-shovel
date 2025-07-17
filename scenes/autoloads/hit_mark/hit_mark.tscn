@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvtk2rmeuak2q"]
+
+[ext_resource type="Script" uid="uid://chnxl3nw0gx3x" path="res://scenes/autoloads/hit_mark/hit_mark.gd" id="1_2t3se"]
+
+[node name="HitMark" type="Node"]
+script = ExtResource("1_2t3se")

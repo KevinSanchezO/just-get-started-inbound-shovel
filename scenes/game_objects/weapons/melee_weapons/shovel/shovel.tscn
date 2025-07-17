@@ -10,6 +10,7 @@ hurtbox_size = Vector3(1.5, 1.5, 1.5)
 weapon_name = "Trench Shovel"
 fire_rate_value = 0.7
 trauma = 0.8
+damage = 25.0
 
 [node name="Sprite3D" parent="Models" index="0"]
 texture = ExtResource("2_jewdi")

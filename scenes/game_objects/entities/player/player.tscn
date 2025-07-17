@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://2viqkqitv2hu"]
+[gd_scene load_steps=13 format=3 uid="uid://2viqkqitv2hu"]
 
 [ext_resource type="PackedScene" uid="uid://b1miamweygiot" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_w3y43"]
 [ext_resource type="Script" uid="uid://f27a4utmpklb" path="res://scenes/game_objects/entities/player/player.gd" id="2_3l5kd"]
 [ext_resource type="PackedScene" uid="uid://cglwiwbqt0gmt" path="res://scenes/components/camera_container/camera_container.tscn" id="3_3l5kd"]
 [ext_resource type="PackedScene" uid="uid://btwacv7207unk" path="res://scenes/components/game_camera/game_camera.tscn" id="4_2ohm5"]
+[ext_resource type="PackedScene" uid="uid://bxw81mwton2w1" path="res://scenes/components/poison/poison.tscn" id="4_ptel0"]
 [ext_resource type="PackedScene" uid="uid://ckll20bsmctab" path="res://scenes/components/hurtbox/hurtbox.tscn" id="6_k2xsl"]
 [ext_resource type="PackedScene" uid="uid://cysxlycxrnowi" path="res://scenes/components/hitscan/hitscan.tscn" id="7_g8od5"]
 [ext_resource type="PackedScene" uid="uid://dtimklo6jfqg8" path="res://scenes/components/weapon_handler/weapon_handler.tscn" id="7_wsv6r"]
@@ -37,6 +38,10 @@ debug_color = Color(1, 1, 1, 0.42)
 [node name="Velocity3d" parent="." index="3"]
 max_fast_speed = 12.0
 
+[node name="Hitbox" parent="." index="6"]
+collision_layer = 4
+collision_mask = 0
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_w3y43")
@@ -45,7 +50,10 @@ debug_color = Color(0.88437, 0, 0.204544, 0.42)
 [node name="Energy" parent="." index="7" instance=ExtResource("8_g8od5")]
 unique_name_in_owner = true
 
-[node name="Head" type="Node3D" parent="." index="8"]
+[node name="Poison" parent="." index="8" node_paths=PackedStringArray("health") instance=ExtResource("4_ptel0")]
+health = NodePath("../Health")
+
+[node name="Head" type="Node3D" parent="." index="9"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 

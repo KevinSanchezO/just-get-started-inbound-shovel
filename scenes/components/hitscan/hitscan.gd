@@ -16,7 +16,7 @@ func fire_rays(number_rays:int, spread:float, damage:float) -> Array[Dictionary]
 		
 		hits.append(hit_data)
 		
-		if not hit_data["collider"] is Hurtbox:
+		if not hit_data["collider"] is Hitbox:
 			continue
 		
 		var hit := hit_data["collider"] as Hitbox

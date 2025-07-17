@@ -6,8 +6,6 @@ signal tired_stopped()
 
 @export var hurtbox_size : Vector3
 
-var current_hurtbox_active := false
-
 func _ready() -> void:
 	super()
 	
@@ -31,6 +29,9 @@ func set_hurtbox_size() -> void:
 	entity.hurtbox_melee.disable()
 
 
-func _handle_hurtbox() -> void:
-	current_hurtbox_active = not(current_hurtbox_active)
-	entity.hurtbox_melee.disable() if current_hurtbox_active else entity.hurtbox_melee.enable() 
+func _enable_hurtbox() -> void:
+	entity.hurtbox_melee.enable() 
+
+
+func _disable_hurtbox() -> void:
+	entity.hurtbox_melee.disable()

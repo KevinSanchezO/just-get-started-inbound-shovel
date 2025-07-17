@@ -10,6 +10,7 @@ hurtbox_size = Vector3(1, 1, 2.2)
 weapon_name = "Ronso Spear"
 fire_rate_value = 1.5
 trauma = 0.8
+damage = 100.0
 
 [node name="Sprite3D" parent="Models" index="0"]
 transform = Transform3D(-7.91465e-08, -1.35794e-08, 1.5, -1.06066, 1.06066, -4.63629e-08, -1.06066, -1.06066, -6.55671e-08, 0, 0, -0.04)

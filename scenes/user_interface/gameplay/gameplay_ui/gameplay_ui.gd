@@ -38,12 +38,16 @@ func gameplay_ui_config() -> void:
 	#health
 	progress_bar_health.init_value(health.current_health)
 	health.health_reduced.connect(_update_health_points)
+	health.health_increased.connect(_update_health_points)
 	
 	#first weapon
 	_init_weapon_widget(weapon_widget_1, weapon_handler.available_weapons[0])
 	
 	#second weapon
 	_init_weapon_widget(weapon_widget_2, weapon_handler.available_weapons[1])
+	
+	#poison
+	stop_watch.start_poisoning.connect(_start_poison_settings)
 
 
 func _update_health_points() -> void:
@@ -80,3 +84,7 @@ func _reload(widget: WeaponWidget) -> void:
 
 func _status_melee(widget: WeaponWidget, tired:bool):
 	widget.set_weapon_round_melee(tired)
+
+
+func _start_poison_settings() -> void:
+	entity.poison.poisoning = true
