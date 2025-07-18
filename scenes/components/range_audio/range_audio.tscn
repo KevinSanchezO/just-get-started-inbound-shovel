@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl8rbvnnlv5qv"]
+
+[ext_resource type="Script" uid="uid://b0is5g4k54cdc" path="res://scenes/components/range_audio/range_audio.gd" id="1_58ikm"]
+
+[node name="RangeAudio" type="AudioStreamPlayer3D"]
+script = ExtResource("1_58ikm")

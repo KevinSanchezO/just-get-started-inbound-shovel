@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4dhdk2hwx1oc"]
+
+[ext_resource type="PackedScene" uid="uid://dj88yg8sgm838" path="res://layers/object_pools/object_pool/object_pool.tscn" id="1_y8t65"]
+[ext_resource type="PackedScene" uid="uid://rvtfy4ss5oe5" path="res://scenes/vfx/bullet_trail/bullet_trail.tscn" id="2_efq2h"]
+
+[node name="ObjectPoolBulletTrail" groups=["object_pool_bullet_trail"] instance=ExtResource("1_y8t65")]
+scene_to_pool = ExtResource("2_efq2h")

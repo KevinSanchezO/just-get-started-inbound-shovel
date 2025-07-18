@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="just-get-started-inbound-shovel"
+run/main_scene="uid://oo4huubwsvhi"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/show_image=false
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -30,6 +34,7 @@ window/size/viewport_height=720
 
 projectile_layer=""
 player=""
+object_pool_bullet_trail=""
 
 [input]
 

@@ -10,7 +10,7 @@
 script = ExtResource("2_vne3o")
 charged_limit = 75.0
 increase_value = 1.0
-hurtbox_size = Vector3(2, 1, 2.5)
+hurtbox_size = Vector3(2.5, 2, 3)
 weapon_name = "Warhammer 40T"
 fire_rate_value = 3.0
 trauma = 3.7

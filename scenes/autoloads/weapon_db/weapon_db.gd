@@ -28,5 +28,5 @@ func select_random_weapons() -> Array:
 		available_ids.erase(first_id)
 		second_id = available_ids[randi() % available_ids.size()]
 	#return [weapon_dict[first_id], weapon_dict[second_id]]
-	return [weapon_dict[5], weapon_dict[6]]
+	return [weapon_dict[1], weapon_dict[2]]
 	

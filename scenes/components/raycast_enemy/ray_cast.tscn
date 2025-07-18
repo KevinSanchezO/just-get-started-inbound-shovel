@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3l5mwn1xnrge"]
+
+[ext_resource type="Script" uid="uid://bqncgnq0m2v2v" path="res://scenes/components/raycast_enemy/ray_cast.gd" id="1_bciyp"]
+
+[node name="RayCast" type="RayCast3D"]
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+script = ExtResource("1_bciyp")

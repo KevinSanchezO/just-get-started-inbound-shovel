@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0rmc23lk402a"]
+
+[ext_resource type="Script" uid="uid://bgndv25pagolp" path="res://scenes/components/face_direction/face_direction.gd" id="1_oimet"]
+
+[node name="FaceDirection" type="Node3D"]
+script = ExtResource("1_oimet")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://oo4huubwsvhi"]
+[gd_scene load_steps=13 format=3 uid="uid://oo4huubwsvhi"]
 
 [ext_resource type="PackedScene" uid="uid://cxd5mbi65q2f" path="res://layers/projectile_layer/projectile_layer.tscn" id="1_bkokw"]
 [ext_resource type="PackedScene" uid="uid://bjodgn38dxucp" path="res://scenes/user_interface/gameplay/gameplay_ui/gameplay_ui.tscn" id="1_sp0ir"]
+[ext_resource type="PackedScene" uid="uid://d4dhdk2hwx1oc" path="res://layers/object_pools/object_pool_bullet_trail/object_pool_bullet_trail.tscn" id="2_eh6j0"]
 [ext_resource type="PackedScene" uid="uid://2viqkqitv2hu" path="res://scenes/game_objects/entities/player/player.tscn" id="2_m7urx"]
-[ext_resource type="PackedScene" uid="uid://fcohygsdgusk" path="res://scenes/game_objects/entities/enemies/bat/bat.tscn" id="4_kq60m"]
+[ext_resource type="PackedScene" uid="uid://c4kljdq1xirbm" path="res://scenes/game_objects/entities/enemies/soldier/soldier.tscn" id="5_eh6j0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7urx"]
 
@@ -33,6 +34,10 @@ size = Vector3(1, 5, 20)
 
 [node name="GameplayUI" parent="." instance=ExtResource("1_sp0ir")]
 
+[node name="ObjectPoolBulletTrail" parent="." instance=ExtResource("2_eh6j0")]
+
+[node name="ProjectileLayer" parent="." instance=ExtResource("1_bkokw")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m7urx")
 compositor = SubResource("Compositor_sp0ir")
@@ -40,8 +45,6 @@ compositor = SubResource("Compositor_sp0ir")
 [node name="OmniLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 11.4389, 0)
 sky_mode = 1
-
-[node name="ProjectileLayer" parent="." instance=ExtResource("1_bkokw")]
 
 [node name="NavigationRegion" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_eh6j0")
@@ -59,10 +62,10 @@ collision_mask = 0
 mesh = SubResource("BoxMesh_m7urx")
 
 [node name="Player" parent="." instance=ExtResource("2_m7urx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.4824, 0, 0)
 
-[node name="Bat" parent="." instance=ExtResource("4_kq60m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.384, -4.76837e-07, 4.66059)
+[node name="Soldier" parent="." instance=ExtResource("5_eh6j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60013, -1.90735e-06, -8.82606)
 
-[node name="Bat2" parent="." instance=ExtResource("4_kq60m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.21259, 0, -10.0772)
+[node name="Soldier2" parent="." instance=ExtResource("5_eh6j0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 9)

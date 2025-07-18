@@ -35,7 +35,6 @@ func _ready() -> void:
 	recoil_timer.wait_time = fire_rate_value
 	
 	self.weapon_fired.connect(fire_rate.start)
-	#self.weapon_fired.connect(fire_audio.play_audio)
 	self.weapon_fired.connect(muzzle_flash.start_muzzle_flash)
 	
 	reload_timer.timeout.connect(_reload)
@@ -64,9 +63,10 @@ func _reload() -> void:
 
 
 func shoot_weapon() -> void:
-	var entity_layer := get_tree().get_first_node_in_group("projectile_layer") as Node3D
-	if entity_layer == null:
+	var bullet_trail_pool := get_tree().get_first_node_in_group("object_pool_bullet_trail") as ObjectPool
+	if bullet_trail_pool == null:
 		push_error("No entity layer found.")
+		return
 	
 	if current_chamber == 0:
 		return
@@ -80,9 +80,8 @@ func shoot_weapon() -> void:
 	var hits := raycast.fire_rays(projectiles_per_shoot, spread, damage)
 	for i in hits.size():
 		var hit := hits[i]
-		var instance = bullet_trail.instantiate()
-		instance.init(spawner.global_position ,hit["position"])
-		entity_layer.add_child(instance)
+		var trail = bullet_trail_pool.get_instance() as BulletTrail
+		trail.init(spawner.global_position ,hit["position"], bullet_trail_pool)
 	
 	firing = false
 	current_chamber -= 1
@@ -105,3 +104,7 @@ func _update_recoil() -> void:
 
 func _set_default_recoil() -> void:
 	current_recoil = recoil
+
+
+func _play_range_audio(range_audio:RangeAudio) -> void:
+	range_audio.play_audio(current_chamber, max_chamber)

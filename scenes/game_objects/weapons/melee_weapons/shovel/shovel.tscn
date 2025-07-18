@@ -6,7 +6,7 @@
 
 [node name="Shovel" instance=ExtResource("1_o0ggp")]
 script = ExtResource("2_w2owh")
-hurtbox_size = Vector3(1.5, 1.5, 1.5)
+hurtbox_size = Vector3(1.5, 2, 1.5)
 weapon_name = "Trench Shovel"
 fire_rate_value = 0.7
 trauma = 0.8

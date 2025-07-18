@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbejtxuweaf6d"]
+
+[ext_resource type="Script" uid="uid://b2lyh5nprnu7r" path="res://scenes/game_objects/projectiles/projectile/projectile.gd" id="1_4ogd7"]
+[ext_resource type="PackedScene" uid="uid://ckll20bsmctab" path="res://scenes/components/hurtbox/hurtbox.tscn" id="1_61luo"]
+[ext_resource type="PackedScene" uid="uid://bet2llkn5xea8" path="res://scenes/components/velocity3d/velocity_3d.tscn" id="2_4ogd7"]
+[ext_resource type="PackedScene" uid="uid://0rmc23lk402a" path="res://scenes/components/face_direction/face_direction.tscn" id="3_nslcx"]
+
+[node name="Projectile" type="CharacterBody3D"]
+script = ExtResource("1_4ogd7")
+
+[node name="Model" type="Sprite3D" parent="."]
+billboard = 2
+texture_filter = 0
+
+[node name="Hurtbox" parent="." instance=ExtResource("1_61luo")]
+
+[node name="Velocity3d" parent="." instance=ExtResource("2_4ogd7")]
+
+[node name="FaceDirection" parent="." instance=ExtResource("3_nslcx")]
+turn_speed = -1.0
+
+[node name="QueueFreeTimer" type="Timer" parent="."]

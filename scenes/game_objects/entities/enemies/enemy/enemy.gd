@@ -5,6 +5,8 @@ class_name Enemy
 @export var proximity_target_value := 6.0
 
 @onready var entity_navigation := $EntityNavigation as EntityNavigation
+@onready var spawn_point := %SpawnPointProjectile as Node3D
+@onready var ray_cast := %RayCast as RayCast
 
 var target : Player
 var direction_towards_target : Vector3

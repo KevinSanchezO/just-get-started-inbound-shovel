@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj88yg8sgm838"]
+
+[ext_resource type="Script" uid="uid://gqcfu00ho7te" path="res://layers/object_pools/object_pool/object_pool.gd" id="1_ocm20"]
+
+[node name="ObjectPool" type="Node3D"]
+script = ExtResource("1_ocm20")

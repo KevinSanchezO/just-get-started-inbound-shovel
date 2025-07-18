@@ -1,8 +1,6 @@
 extends Entity
 class_name Player
 
-@export var weight := 0.0
-
 @export_group("Mouse Sensitivity")
 @export_range(0.001, 0.01, 0.0001) var mouse_sensitivity := 0.005
 
@@ -31,6 +29,7 @@ var sprint_lock := false
 var sprint_input_pressed := false
 var headbob_time := 0.0
 var mouse_input : Vector2
+var mouse_capture := true
 var on_ground : bool
 var sprinting : bool :
 	set(value):
@@ -63,18 +62,17 @@ func _unhandled_input(event) -> void:
 	if Input.is_action_just_pressed("switch_weapon"):
 		weapon_handler.switch_weapon()
 	
-	#if event is InputEventMouseButton:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
-			head.rotate_y(-event.relative.x * mouse_sensitivity)
-			view_container.rotate_x(-event.relative.y * mouse_sensitivity)
-			view_container.rotation.x = clamp(view_container.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-			mouse_input = event.relative
+	if event is InputEventMouseMotion:
+		head.rotate_y(-event.relative.x * mouse_sensitivity)
+		view_container.rotate_x(-event.relative.y * mouse_sensitivity)
+		view_container.rotation.x = clamp(view_container.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+		mouse_input = event.relative
 
 
 func _physics_process(_delta: float) -> void:
+	if mouse_capture:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
 	velocity_3d.apply_gravity(self)
 	
 	if loss_of_control_effects != []:

@@ -14,4 +14,3 @@ script = ExtResource("1_nix3s")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = true
