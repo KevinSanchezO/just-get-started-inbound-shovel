@@ -1,18 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://0u8erdv8suji"]
+[gd_scene load_steps=5 format=3 uid="uid://0u8erdv8suji"]
 
 [ext_resource type="PackedScene" uid="uid://bsnebuboq7mg8" path="res://scenes/game_objects/weapons/range_weapons/range_weapon/range_weapon.tscn" id="1_t6x5l"]
 [ext_resource type="Script" uid="uid://dan6kj7jhg6e4" path="res://scenes/game_objects/weapons/range_weapons/uzi/uzi.gd" id="2_r86sq"]
 [ext_resource type="Texture2D" uid="uid://dwcdra518alp8" path="res://scenes/game_objects/weapons/range_weapons/uzi/uzi.png" id="3_4v653"]
-[ext_resource type="PackedScene" uid="uid://bl8rbvnnlv5qv" path="res://scenes/components/range_audio/range_audio.tscn" id="4_mhu51"]
-[ext_resource type="AudioStream" uid="uid://c5hw8mqfyjyqm" path="res://scenes/game_objects/weapons/range_weapons/uzi/uzi.wav" id="5_1a00h"]
+[ext_resource type="AudioStream" uid="uid://bamd3xkqm1833" path="res://scenes/game_objects/weapons/range_weapons/pistol/Pistol.wav" id="4_mhu51"]
 
 [node name="UZI" instance=ExtResource("1_t6x5l")]
 script = ExtResource("2_r86sq")
 projectiles_per_shoot = 1
-spread = 0.18
+spread = 0.12
 max_ammo = 450
 max_chamber = 50
-reload_time = 8.0
+reload_time = 6.0
 recoil = Vector3(0.6, 0.05, 0)
 weapon_name = "Auto Conqueror"
 trauma = 0.3
@@ -22,8 +21,8 @@ damage = 5.0
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 0, -0.0109869, 0)
 texture = ExtResource("3_4v653")
 
-[node name="ShootingSFX" parent="AudioContainer" index="1" instance=ExtResource("4_mhu51")]
-stream = ExtResource("5_1a00h")
+[node name="FireRangeSFX" parent="AudioContainer" index="0"]
+stream = ExtResource("4_mhu51")
 max_pitch = 1.4
 min_pitch = 0.7
 

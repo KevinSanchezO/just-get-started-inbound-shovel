@@ -7,8 +7,8 @@
 radius = 0.15
 
 [node name="EnemyOrb" instance=ExtResource("1_ycoip")]
-speed_value_min = 20.0
-speed_value_max = 30.0
+speed_value_min = 35.0
+speed_value_max = 45.0
 damage = 10.0
 
 [node name="Model" parent="." index="0"]

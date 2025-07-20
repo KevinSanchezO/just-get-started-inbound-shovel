@@ -8,7 +8,6 @@ class_name Weapon
 
 @onready var fire_rate := $FireRate as Timer
 @onready var animation := $AnimationPlayer as AnimationPlayer
-@onready var ready_sfx := $AudioContainer/ReadySFX as RandomPitchAudio
 
 var active := false
 var can_change := true

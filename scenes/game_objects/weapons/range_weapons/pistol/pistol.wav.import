@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d23xi77xfx7k2"
-path="res://.godot/imported/pistol.wav-cf65124c6b761a2376a7f36ddfcf4c30.sample"
+uid="uid://bamd3xkqm1833"
+path="res://.godot/imported/Pistol.wav-3ef8943627865f0fc5ee0deae8422b9d.sample"
 
 [deps]
 
-source_file="res://scenes/game_objects/weapons/range_weapons/pistol/pistol.wav"
-dest_files=["res://.godot/imported/pistol.wav-cf65124c6b761a2376a7f36ddfcf4c30.sample"]
+source_file="res://scenes/game_objects/weapons/range_weapons/pistol/Pistol.wav"
+dest_files=["res://.godot/imported/Pistol.wav-3ef8943627865f0fc5ee0deae8422b9d.sample"]
 
 [params]
 

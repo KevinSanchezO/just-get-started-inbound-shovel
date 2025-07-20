@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c5hw8mqfyjyqm"
-path="res://.godot/imported/uzi.wav-9e2f8b643099785932a72fee67e75490.sample"
+uid="uid://br1438gknwgr"
+path="res://.godot/imported/Uzi.wav-6184f2329e04c9f7ec425891590b7db1.sample"
 
 [deps]
 
-source_file="res://scenes/game_objects/weapons/range_weapons/uzi/uzi.wav"
-dest_files=["res://.godot/imported/uzi.wav-9e2f8b643099785932a72fee67e75490.sample"]
+source_file="res://scenes/game_objects/weapons/range_weapons/uzi/Uzi.wav"
+dest_files=["res://.godot/imported/Uzi.wav-6184f2329e04c9f7ec425891590b7db1.sample"]
 
 [params]
 

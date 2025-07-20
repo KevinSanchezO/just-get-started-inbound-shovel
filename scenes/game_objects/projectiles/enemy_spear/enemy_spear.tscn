@@ -1,10 +1,144 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba5qahmtdm8ed"]
+[gd_scene load_steps=11 format=3 uid="uid://ba5qahmtdm8ed"]
 
 [ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="1_hi6qc"]
 [ext_resource type="Texture2D" uid="uid://ngmja5ahylvq" path="res://scenes/game_objects/projectiles/enemy_spear/charge.png" id="1_w8bbo"]
 [ext_resource type="Script" uid="uid://cfq6gi6yx20ri" path="res://scenes/game_objects/projectiles/enemy_spear/enemy_spear.gd" id="1_xxfdd"]
 [ext_resource type="PackedScene" uid="uid://ckll20bsmctab" path="res://scenes/components/hurtbox/hurtbox.tscn" id="2_w8bbo"]
 [ext_resource type="Texture2D" uid="uid://dra17wwv5it4" path="res://scenes/game_objects/projectiles/enemy_spear/spear.png" id="3_j0656"]
+[ext_resource type="AudioStream" uid="uid://47tmcp2jx5kg" path="res://scenes/game_objects/weapons/melee_weapons/spear/Lance.wav" id="5_j0656"]
+
+[sub_resource type="Animation" id="Animation_j0656"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charge:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spear:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spear:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xxfdd"]
+resource_name = "spear"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Charge:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spear:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133334, 0.200001, 0.266667, 0.333334, 0.400001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Spear:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hurtbox")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"disable"
+}, {
+"args": [],
+"method": &"enable"
+}, {
+"args": [],
+"method": &"disable"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.633333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_destroy"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RandomPitchAudio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.133333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_audio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0656"]
+_data = {
+&"RESET": SubResource("Animation_j0656"),
+&"spear": SubResource("Animation_xxfdd")
+}
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hi6qc"]
 
@@ -12,22 +146,31 @@
 script = ExtResource("1_xxfdd")
 
 [node name="Charge" type="Sprite3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0.1, 0)
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0.1, 0)
 texture_filter = 0
 texture = ExtResource("1_w8bbo")
 hframes = 10
 frame = 5
 
 [node name="Spear" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.967729, 0)
+transform = Transform3D(7, 0, 0, 0, 4.2, 0, 0, 0, 4.2, 0, 0.967729, 0)
+billboard = 2
 texture_filter = 0
 texture = ExtResource("3_j0656")
 hframes = 5
 frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j0656")
+}
+autoplay = "spear"
 
 [node name="RandomPitchAudio" parent="." instance=ExtResource("1_hi6qc")]
+stream = ExtResource("5_j0656")
+volume_db = 20.0
+max_pitch = 0.7
+min_pitch = 0.5
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_w8bbo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

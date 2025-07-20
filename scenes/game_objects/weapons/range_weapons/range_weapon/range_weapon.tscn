@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsnebuboq7mg8"]
+[gd_scene load_steps=10 format=3 uid="uid://bsnebuboq7mg8"]
 
 [ext_resource type="PackedScene" uid="uid://3hqpc5vlrj6e" path="res://scenes/game_objects/weapons/weapon/weapon.tscn" id="1_a10u0"]
 [ext_resource type="Script" uid="uid://c52batdugrc66" path="res://scenes/game_objects/weapons/range_weapons/range_weapon/range_weapon.gd" id="2_iv4br"]
 [ext_resource type="PackedScene" uid="uid://dj18ltpobi6vj" path="res://scenes/vfx/muzzle_flash/muzzle_flash.tscn" id="3_ch2v8"]
 [ext_resource type="PackedScene" uid="uid://rvtfy4ss5oe5" path="res://scenes/vfx/bullet_trail/bullet_trail.tscn" id="3_ejd5y"]
+[ext_resource type="PackedScene" uid="uid://bl8rbvnnlv5qv" path="res://scenes/components/range_audio/range_audio.tscn" id="4_s2kt3"]
+[ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="5_2hryi"]
 
 [sub_resource type="Animation" id="Animation_ejd5y"]
 length = 0.001
@@ -57,6 +59,12 @@ bullet_trail = ExtResource("3_ejd5y")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shaded = true
 texture_filter = 0
+
+[node name="FireRangeSFX" parent="AudioContainer" index="1" instance=ExtResource("4_s2kt3")]
+unique_name_in_owner = true
+
+[node name="FireRandomPitchSFX" parent="AudioContainer" index="2" instance=ExtResource("5_2hryi")]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

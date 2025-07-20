@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgkh560rmp4lt"]
+[gd_scene load_steps=7 format=3 uid="uid://dgkh560rmp4lt"]
 
 [ext_resource type="PackedScene" uid="uid://b3il70yqipl0r" path="res://scenes/game_objects/weapons/melee_weapons/melee_weapon/melee_weapon.tscn" id="1_sllte"]
 [ext_resource type="Script" uid="uid://h3djgomgc7yn" path="res://scenes/game_objects/weapons/melee_weapons/hammer/hammer.gd" id="2_vne3o"]
 [ext_resource type="Texture2D" uid="uid://dogs5nig7qba2" path="res://scenes/game_objects/weapons/melee_weapons/hammer/hammer.png" id="3_a21fm"]
 [ext_resource type="Texture2D" uid="uid://bi64w4nf8yom6" path="res://scenes/vfx/charge_vfx/charging.png" id="4_j4520"]
 [ext_resource type="Texture2D" uid="uid://bv0s5y3e7psip" path="res://scenes/vfx/charge_vfx/charged.png" id="5_bsn8h"]
+[ext_resource type="AudioStream" uid="uid://bwbase8bc0bjq" path="res://scenes/game_objects/weapons/melee_weapons/hammer/Hammer.wav" id="6_ow58g"]
 
 [node name="Hammer" instance=ExtResource("1_sllte")]
 script = ExtResource("2_vne3o")
@@ -30,3 +31,6 @@ unique_name_in_owner = true
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.0614643, -0.0178619)
 texture_filter = 0
 texture = ExtResource("5_bsn8h")
+
+[node name="AttackSFX" parent="AudioContainer" index="0"]
+stream = ExtResource("6_ow58g")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3il70yqipl0r"]
+[gd_scene load_steps=9 format=3 uid="uid://b3il70yqipl0r"]
 
 [ext_resource type="PackedScene" uid="uid://3hqpc5vlrj6e" path="res://scenes/game_objects/weapons/weapon/weapon.tscn" id="1_u2u1l"]
 [ext_resource type="Script" uid="uid://kqc0nhdsf1se" path="res://scenes/game_objects/weapons/melee_weapons/melee_weapon/melee_weapon.gd" id="2_7nhvg"]
+[ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="3_uarae"]
 
 [sub_resource type="Animation" id="Animation_tcr62"]
 length = 0.001
@@ -186,6 +187,9 @@ hurtbox_size = Vector3(0, 0, 0)
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.04)
 shaded = true
 texture_filter = 0
+
+[node name="AttackSFX" parent="AudioContainer" index="0" instance=ExtResource("3_uarae")]
+unique_name_in_owner = true
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3hqpc5vlrj6e"]
+[gd_scene load_steps=2 format=3 uid="uid://3hqpc5vlrj6e"]
 
 [ext_resource type="Script" uid="uid://dnu4oie0f8130" path="res://scenes/game_objects/weapons/weapon/weapon.gd" id="1_g8krq"]
-[ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="2_313jp"]
 
 [node name="Weapon" type="Node3D"]
 script = ExtResource("1_g8krq")
@@ -9,8 +8,6 @@ script = ExtResource("1_g8krq")
 [node name="Models" type="Node3D" parent="."]
 
 [node name="AudioContainer" type="Node3D" parent="."]
-
-[node name="ReadySFX" parent="AudioContainer" instance=ExtResource("2_313jp")]
 
 [node name="FireRate" type="Timer" parent="."]
 one_shot = true

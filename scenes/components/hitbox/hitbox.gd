@@ -4,13 +4,12 @@ class_name Hitbox
 signal damage_received()
 
 @export var health : Health
-@export var damage_memory : Stun
 
 
 func enable() -> void:
 	for i in get_child_count():
 		var child := get_child(i)
-		if not child is CollisionShape2D and not child is CollisionPolygon2D:
+		if not child is CollisionShape3D and not child is CollisionPolygon3D:
 			continue
 		
 		child.disabled = false
@@ -19,9 +18,8 @@ func enable() -> void:
 func disable() -> void:
 	for i in get_child_count():
 		var child := get_child(i)
-		if not child is CollisionShape2D and not child is CollisionPolygon2D:
+		if not child is CollisionShape3D and not child is CollisionPolygon3D:
 			continue
-		
 		child.disabled = true
 
 

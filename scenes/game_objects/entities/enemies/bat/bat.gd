@@ -9,6 +9,7 @@ class_name Bat
 
 @onready var attack_timer := $AttackTimer as Timer
 
+
 func _ready() -> void:
 	super()
 	
@@ -28,6 +29,11 @@ func _generate_attack() -> void:
 	if projectile == null:
 		push_error("No projectile found.")
 		return
+	
+	if loss_of_control_effects != []:
+		return
+	
+	attack_sfx.play_audio()
 	
 	for i in num_spawn:
 		var projectile_isntance = projectile.instantiate() as Projectile

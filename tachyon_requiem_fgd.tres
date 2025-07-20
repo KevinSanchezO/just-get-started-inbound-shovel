@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" load_steps=3 format=3 uid="uid://cgy185kbh4gld"]
+
+[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_5ok3m"]
+[ext_resource type="Script" uid="uid://c6trbixi2mlrq" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_fbdiv"]
+
+[resource]
+script = ExtResource("1_fbdiv")
+export_file = false
+target_map_editor = 1
+fgd_name = "tachyon-requiem"
+base_fgd_files = Array[Resource]([ExtResource("1_5ok3m")])
+entity_definitions = Array[Resource]([])
+metadata/_custom_type_script = "uid://c6trbixi2mlrq"

@@ -4,12 +4,15 @@ class_name MeleeWeapon
 signal melee_used()
 signal tired_stopped()
 
+@onready var attack_sfx := %AttackSFX as RandomPitchAudio
+
 @export var hurtbox_size : Vector3
 
 func _ready() -> void:
 	super()
 	
 	self.melee_used.connect(fire_rate.start)
+	self.melee_used.connect(attack_sfx.play_audio)
 	fire_rate.timeout.connect(tired_stopped.emit)
 	
 	set_hurtbox_size.call_deferred()

@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://xxitnjx6g0e8"]
+
+[ext_resource type="Script" uid="uid://b1cfludm73v6x" path="res://scenes/music/bg_music.gd" id="1_8w2n1"]
+[ext_resource type="AudioStream" uid="uid://p4mmqcx7gptt" path="res://scenes/music/01 Beginning.wav" id="2_cqmco"]
+[ext_resource type="AudioStream" uid="uid://cqdswwdt8brbp" path="res://scenes/music/02 Middle.wav" id="3_tuhdp"]
+[ext_resource type="AudioStream" uid="uid://cn2eigr5aku3n" path="res://scenes/music/03 End.wav" id="4_ih2bp"]
+
+[node name="BGMusic" type="Node"]
+script = ExtResource("1_8w2n1")
+
+[node name="Beginning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cqmco")
+volume_db = -10.0
+
+[node name="Middle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tuhdp")
+volume_db = -10.0
+
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ih2bp")
+volume_db = -10.0

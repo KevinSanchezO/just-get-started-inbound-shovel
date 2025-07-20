@@ -5,7 +5,6 @@ class_name Entity
 @onready var audio_container := $AudioContainer as Node3D
 @onready var velocity_3d := $Velocity3d as Velocity3d
 @onready var health := $Health as Health
-@onready var stun := $Stun as Stun
 @onready var hitbox := $Hitbox as Hitbox
 
 var loss_of_control_effects := []

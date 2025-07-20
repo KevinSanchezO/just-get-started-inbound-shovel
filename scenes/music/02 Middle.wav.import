@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqdswwdt8brbp"
+path="res://.godot/imported/02 Middle.wav-46bbb5a5ff0550a7eb4e43cc76cf4858.sample"
+
+[deps]
+
+source_file="res://scenes/music/02 Middle.wav"
+dest_files=["res://.godot/imported/02 Middle.wav-46bbb5a5ff0550a7eb4e43cc76cf4858.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

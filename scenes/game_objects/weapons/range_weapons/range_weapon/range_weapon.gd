@@ -18,6 +18,8 @@ var current_max_ammo : int
 var current_chamber : int
 var raycast : Hitscan
 
+@onready var fire_range_sfx := %FireRangeSFX as RangeAudio
+@onready var fire_random_pitch_sfx := %FireRandomPitchSFX as RandomPitchAudio
 @onready var spawner := $Spawner as Node3D
 @onready var muzzle_flash := %MuzzleFlash as MuzzleFlash
 @onready var reload_timer := $ReloadTimer as Timer
@@ -36,7 +38,7 @@ func _ready() -> void:
 	
 	self.weapon_fired.connect(fire_rate.start)
 	self.weapon_fired.connect(muzzle_flash.start_muzzle_flash)
-	
+	self.weapon_fired.connect(_play_fire_audio)
 	reload_timer.timeout.connect(_reload)
 
 
@@ -106,5 +108,6 @@ func _set_default_recoil() -> void:
 	current_recoil = recoil
 
 
-func _play_range_audio(range_audio:RangeAudio) -> void:
-	range_audio.play_audio(current_chamber, max_chamber)
+func _play_fire_audio() -> void:
+	fire_range_sfx.play_audio(current_chamber, max_chamber)
+	fire_random_pitch_sfx.play_audio()

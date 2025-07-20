@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c47qhtomvtuw3"
+path="res://.godot/imported/Bat Death.wav-a25720626e0e36d0ed2ca22f7ad62e9e.sample"
+
+[deps]
+
+source_file="res://scenes/game_objects/entities/enemies/bat/Bat Death.wav"
+dest_files=["res://.godot/imported/Bat Death.wav-a25720626e0e36d0ed2ca22f7ad62e9e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
