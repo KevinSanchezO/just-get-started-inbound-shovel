@@ -1833,6 +1833,43 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": 0
 }
+},
+"meshes": {
+"blockbench_export_mesh": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"blockbench_export_mesh2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+},
+"blockbench_export_mesh3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 60.0,
+"save_to_file/enabled": false,
+"save_to_file/path": ""
+}
+},
+"nodes": {
+"PATH:Node/bat/core2/core": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Node/bat/left_wing/core3": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Node/bat/right_wing/core4": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 gltf/naming_version=1

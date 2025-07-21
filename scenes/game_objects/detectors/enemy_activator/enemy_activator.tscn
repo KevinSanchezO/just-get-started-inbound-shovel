@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://de8rnx1npwicj"]
+
+[ext_resource type="Script" uid="uid://d0oisgmaibgho" path="res://scenes/game_objects/detectors/enemy_activator/enemy_activator.gd" id="1_ftrd4"]
+
+[node name="EnemyActivator" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ftrd4")

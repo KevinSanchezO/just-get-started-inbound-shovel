@@ -33,6 +33,9 @@ func _generate_attack() -> void:
 	if loss_of_control_effects != []:
 		return
 	
+	if target == null:
+		return
+	
 	attack_sfx.play_audio()
 	
 	for i in num_spawn:

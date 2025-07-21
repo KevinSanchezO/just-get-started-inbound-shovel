@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cqdswwdt8brbp" path="res://scenes/music/02 Middle.wav" id="3_tuhdp"]
 [ext_resource type="AudioStream" uid="uid://cn2eigr5aku3n" path="res://scenes/music/03 End.wav" id="4_ih2bp"]
 
-[node name="BGMusic" type="Node"]
+[node name="BGMusic" type="Node" groups=["music"]]
 script = ExtResource("1_8w2n1")
 
 [node name="Beginning" type="AudioStreamPlayer" parent="."]

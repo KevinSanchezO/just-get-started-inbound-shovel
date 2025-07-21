@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3mem0j8qhwn1"]
+
+[ext_resource type="Script" uid="uid://bxu7cidsxhcyw" path="res://scenes/autoloads/gameplay_tracker/gameplays_tracker.gd" id="1_3drix"]
+
+[node name="GameplaysTracker" type="Node"]
+script = ExtResource("1_3drix")

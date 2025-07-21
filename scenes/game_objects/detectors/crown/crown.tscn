@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhphenj66puq6"]
+
+[ext_resource type="Script" uid="uid://cp6itwylv1tly" path="res://scenes/game_objects/detectors/crown/crown.gd" id="1_ejj3g"]
+[ext_resource type="Texture2D" uid="uid://4qt3aovvetcu" path="res://scenes/game_objects/detectors/crown/crown.png" id="1_k20gm"]
+[ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="3_w67y8"]
+[ext_resource type="AudioStream" uid="uid://ch20kfgeols05" path="res://scenes/game_objects/detectors/crown/Picked Coin Echo.wav" id="4_w67y8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k20gm"]
+size = Vector3(1.90393, 1.73425, 2.19312)
+
+[node name="Crown" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_ejj3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0610962, 0.964159, -0.0567627)
+shape = SubResource("BoxShape3D_k20gm")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 1, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_k20gm")
+
+[node name="RandomPitchAudio" parent="." instance=ExtResource("3_w67y8")]
+stream = ExtResource("4_w67y8")

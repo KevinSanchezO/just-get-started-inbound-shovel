@@ -57,13 +57,12 @@ bullet_trail = ExtResource("3_ejd5y")
 
 [node name="Sprite3D" type="Sprite3D" parent="Models" index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-shaded = true
 texture_filter = 0
 
-[node name="FireRangeSFX" parent="AudioContainer" index="1" instance=ExtResource("4_s2kt3")]
+[node name="FireRangeSFX" parent="AudioContainer" index="0" instance=ExtResource("4_s2kt3")]
 unique_name_in_owner = true
 
-[node name="FireRandomPitchSFX" parent="AudioContainer" index="2" instance=ExtResource("5_2hryi")]
+[node name="FireRandomPitchSFX" parent="AudioContainer" index="1" instance=ExtResource("5_2hryi")]
 unique_name_in_owner = true
 
 [node name="AnimationPlayer" parent="." index="3"]

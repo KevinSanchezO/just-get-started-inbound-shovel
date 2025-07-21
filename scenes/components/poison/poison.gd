@@ -2,8 +2,8 @@ extends Node
 class_name Poison
 
 @export var damage_timer_value := 2.0
-@export var poison_damage := 1.0
-@export var health : Health
+@export var poison_damage := 3.0
+@export var hitbox : Hitbox
 
 @onready var damage_timer := $Timer as Timer
 
@@ -16,4 +16,4 @@ func _ready() -> void:
 
 func _poison_entity() -> void:
 	if poisoning:
-		health.damage(poison_damage)
+		hitbox.deal_damage(poison_damage)

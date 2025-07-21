@@ -3,7 +3,7 @@ class_name StopWatch
 
 signal start_poisoning()
 
-const LIMIT_MINUTES := 2
+const LIMIT_MINUTES := 1
 const LIMIT_SECONDS := 30
 
 @onready var minutes_label := $Minutes as Label

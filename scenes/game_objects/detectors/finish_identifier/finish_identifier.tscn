@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55fyisde7jo4"]
+
+[ext_resource type="Script" uid="uid://bnbbp3snt5bt7" path="res://scenes/game_objects/detectors/finish_identifier/finish_identifier.gd" id="1_rr5lu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kn3il"]
+size = Vector3(7.8968, 3.14502, 1.73083)
+
+[node name="FinishIdentifier" type="Area3D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_rr5lu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201729, 0.278564, -0.234924)
+shape = SubResource("BoxShape3D_kn3il")
+debug_color = Color(0.713226, 0, 0.165715, 0.42)

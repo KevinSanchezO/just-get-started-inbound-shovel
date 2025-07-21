@@ -21,6 +21,9 @@ func _ready() -> void:
 	attack_timer.timeout.connect(_generate_attack)
 
 func _generate_attack() -> void:
+	if target == null:
+		return
+	
 	var select_attack = randi_range(1, 2)
 	if select_attack == 1:
 		_generate_orb()
@@ -71,6 +74,7 @@ func _generate_spear() -> void:
 	if loss_of_control_effects != []:
 		return
 	
+	await get_tree().create_timer(0.1).timeout
 	for i in num_spawn_spear:
 		var lance_isntance = lance.instantiate() as EnemySpear
 		entity_layer.add_child(lance_isntance)

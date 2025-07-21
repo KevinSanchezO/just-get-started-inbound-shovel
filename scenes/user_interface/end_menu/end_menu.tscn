@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlfaldaaxcneu"]
+
+[ext_resource type="Script" uid="uid://ey0am52qg51o" path="res://scenes/user_interface/end_menu/end_menu.gd" id="1_r0ne6"]
+[ext_resource type="LabelSettings" uid="uid://d18ip1ak2mg3j" path="res://resources/styles/label_settings.tres" id="2_g6oyi"]
+
+[node name="EndMenu" type="CanvasLayer"]
+script = ExtResource("1_r0ne6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control/VBoxContainer"]
+layout_mode = 2
+text = "We have an update? It got the crown and is at the gate? Good. Let her die 
+and open the gate. She did her job good. Remember to retrieve her soul, 
+she good potential, we can use that soul for other missions. 
+Those weird Tachyons are quite useful..."
+label_settings = ExtResource("2_g6oyi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true

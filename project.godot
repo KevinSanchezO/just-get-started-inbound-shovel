@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="just-get-started-inbound-shovel"
-run/main_scene="uid://oo4huubwsvhi"
+run/main_scene="uid://bbs7rvkt7kaxd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
@@ -25,6 +25,7 @@ Camera="*res://scenes/autoloads/camera/camera.tscn"
 WeaponDB="*res://scenes/autoloads/weapon_db/weapon_db.tscn"
 GameplayInterface="*res://scenes/autoloads/gameplay_interface/gameplay_interface.tscn"
 HitMark="*res://scenes/autoloads/hit_mark/hit_mark.tscn"
+GameplaysTracker="*res://scenes/autoloads/gameplay_tracker/gameplays_tracker.tscn"
 
 [display]
 
@@ -40,6 +41,7 @@ enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
 projectile_layer=""
 player=""
 object_pool_bullet_trail=""
+music=""
 
 [input]
 

@@ -24,6 +24,12 @@ class_name Player
 @onready var hurtbox_melee := %Hurtbox as Hurtbox
 @onready var hitscan := %Hitscan as Hitscan
 @onready var weapon_handler := %WeaponHandler as WeaponHandler
+@onready var animation := $AnimationPlayer as AnimationPlayer
+
+@onready var move_sfx := $AudioContainer/Move as RandomPitchAudio
+@onready var hurt_sfx := $AudioContainer/Hurt as RandomPitchAudio
+@onready var death_sfx := $AudioContainer/Death as RandomPitchAudio
+
 
 var sprint_lock := false
 var sprint_input_pressed := false
@@ -36,6 +42,7 @@ var sprinting : bool :
 		energy.is_consuming = value
 		sprinting = value
 
+var mission_finished := false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -49,6 +56,23 @@ func _ready() -> void:
 	weapon_handler.ready_weapon_handler()
 	_set_gameplay_ui.call_deferred()
 	hurtbox_melee.disable()
+	hitbox.damage_received.connect(hurt_sfx.play_audio)
+	health.died.connect(_start_death)
+	death_sfx.finished.connect(_restart_after_death)
+
+
+func _start_death() -> void:
+	hitbox.disable()
+	loss_of_control_effects.append(self)
+	weapon_handler.visible = false
+	animation.play("death")
+	death_sfx.play_audio()
+
+
+func _restart_after_death() -> void:
+	await get_tree().create_timer(0.5).timeout
+	GameplaysTracker.gameplay_counter += 1
+	get_tree().change_scene_to_file("res://scenes/user_interface/death_screen/death_screen.tscn")
 
 
 func _set_gameplay_ui() -> void:

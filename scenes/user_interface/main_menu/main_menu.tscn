@@ -69,6 +69,7 @@ mouse_filter = 2
 
 [node name="StartButton" type="Button" parent="MarginContainer/Title/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -203,9 +204,9 @@ grow_vertical = 0
 [node name="Monologue" type="Label" parent="MarginContainer/Controls/TimerStart"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Get the Tachyon Soul Engine working. We gotta put this Tachyoner 
-serving. We got the hosts ready for iterations? Good. We are getting that
-thing back one way or another. Let's get started then."
+text = "Get the Tachyon Soul Engine working. We gotta put this foul thing to 
+work. We got the hosts ready for iterations? Good. We are getting that
+crown back one way or another. Let's just get started."
 label_settings = ExtResource("7_tlslw")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -213,6 +214,7 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="Time" type="RichTextLabel" parent="MarginContainer/Controls/TimerStart"]
+visible = false
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_kibp0")
 theme_override_font_sizes/normal_font_size = 64

@@ -1,11 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://2viqkqitv2hu"]
+[gd_scene load_steps=20 format=3 uid="uid://2viqkqitv2hu"]
 
 [ext_resource type="PackedScene" uid="uid://b1miamweygiot" path="res://scenes/game_objects/entities/entity/entity.tscn" id="1_w3y43"]
 [ext_resource type="Script" uid="uid://f27a4utmpklb" path="res://scenes/game_objects/entities/player/player.gd" id="2_3l5kd"]
+[ext_resource type="PackedScene" uid="uid://m7fg7gawqg77" path="res://scenes/components/random_pitch_audio/random_pitch_audio.tscn" id="3_1tqrv"]
 [ext_resource type="PackedScene" uid="uid://cglwiwbqt0gmt" path="res://scenes/components/camera_container/camera_container.tscn" id="3_3l5kd"]
 [ext_resource type="PackedScene" uid="uid://btwacv7207unk" path="res://scenes/components/game_camera/game_camera.tscn" id="4_2ohm5"]
 [ext_resource type="PackedScene" uid="uid://bxw81mwton2w1" path="res://scenes/components/poison/poison.tscn" id="4_ptel0"]
+[ext_resource type="AudioStream" uid="uid://b5noqvtfhore6" path="res://scenes/game_objects/entities/player/PlayerWalk.wav" id="4_yfrml"]
+[ext_resource type="AudioStream" uid="uid://ctbji07qgwlbx" path="res://scenes/game_objects/entities/player/PlayerDeath.wav" id="5_6ooaj"]
 [ext_resource type="PackedScene" uid="uid://ckll20bsmctab" path="res://scenes/components/hurtbox/hurtbox.tscn" id="6_k2xsl"]
+[ext_resource type="AudioStream" uid="uid://bdnc32qifrno0" path="res://scenes/game_objects/entities/player/PlayerHurt.wav" id="6_s08ql"]
 [ext_resource type="PackedScene" uid="uid://cysxlycxrnowi" path="res://scenes/components/hitscan/hitscan.tscn" id="7_g8od5"]
 [ext_resource type="PackedScene" uid="uid://dtimklo6jfqg8" path="res://scenes/components/weapon_handler/weapon_handler.tscn" id="7_wsv6r"]
 [ext_resource type="PackedScene" uid="uid://5bnvlny3g2xc" path="res://scenes/components/energy/energy.tscn" id="8_g8od5"]
@@ -17,6 +21,66 @@ height = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2xsl"]
 size = Vector3(1.5, 2, 1.5)
+
+[sub_resource type="Animation" id="Animation_2vb8y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s08ql"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5, 0), Vector3(0, 0.6, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.872665, 0, 0.872665)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vb8y"]
+_data = {
+&"RESET": SubResource("Animation_2vb8y"),
+&"death": SubResource("Animation_s08ql")
+}
 
 [node name="Player" groups=["player"] instance=ExtResource("1_w3y43")]
 collision_layer = 4
@@ -34,6 +98,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_w3y43")
 debug_color = Color(1, 1, 1, 0.42)
 
+[node name="Move" parent="AudioContainer" index="0" instance=ExtResource("3_1tqrv")]
+stream = ExtResource("4_yfrml")
+
+[node name="Death" parent="AudioContainer" index="1" instance=ExtResource("3_1tqrv")]
+stream = ExtResource("5_6ooaj")
+
+[node name="Hurt" parent="AudioContainer" index="2" instance=ExtResource("3_1tqrv")]
+stream = ExtResource("6_s08ql")
+
 [node name="Velocity3d" parent="." index="3"]
 max_fast_speed = 12.0
 
@@ -50,8 +123,8 @@ debug_color = Color(0.88437, 0, 0.204544, 0.42)
 unique_name_in_owner = true
 max_energy = 50.0
 
-[node name="Poison" parent="." index="7" node_paths=PackedStringArray("health") instance=ExtResource("4_ptel0")]
-health = NodePath("../Health")
+[node name="Poison" parent="." index="7" node_paths=PackedStringArray("hitbox") instance=ExtResource("4_ptel0")]
+hitbox = NodePath("../Hitbox")
 
 [node name="Head" type="Node3D" parent="." index="8"]
 unique_name_in_owner = true
@@ -85,3 +158,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07, -0.08, -0.222)
 entity = NodePath("../../../../..")
 hurtbox_melee = NodePath("../Hurtbox")
 hitscan = NodePath("../Hitscan")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="9"]
+omni_range = 6.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]
+libraries = {
+&"": SubResource("AnimationLibrary_2vb8y")
+}

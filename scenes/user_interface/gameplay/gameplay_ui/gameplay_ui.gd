@@ -1,6 +1,20 @@
 extends CanvasLayer
 class_name GameplayUI
 
+const text_1 = "Go in there and retrieve the 
+crown. Do it before one minute
+and 30 seconds or you'll die from
+poison. Once finished get back to
+the entry gate. Get started already"
+
+const text_2 = "This isn't your first time dying
+so you already know, get the
+crown and quick.Get your shit
+together and start already"
+
+const text_3 = "Stop wasting our time. Just get
+started again and get us that 
+crown and get back. Quick."
 
 var entity : Player
 
@@ -14,10 +28,22 @@ var weapon_handler : WeaponHandler
 @onready var weapon_widget_2 := %WeaponWidget2 as WeaponWidget
 @onready var progress_bar_health := %ProgressBarHealth as ProgressBarStatus
 @onready var progress_bar_energy := %ProgressBarEnergy as ProgressBarStatus
-
+@onready var label_briefing := $MarginContainer/Control/VBoxContainer/Label as Label
+@onready var timer := $MarginContainer/Control/VBoxContainer/Timer as Timer
 
 func _ready() -> void:
 	GameplayInterface.gameplay_interface = self
+	if GameplaysTracker.gameplay_counter == 1:
+		label_briefing.text = text_1
+	if GameplaysTracker.gameplay_counter == 2:
+		label_briefing.text = text_2
+	if GameplaysTracker.gameplay_counter >= 3:
+		label_briefing.text = text_3
+	timer.timeout.connect(_hide_briefing_label)
+
+
+func _hide_briefing_label() -> void:
+	label_briefing.visible = false
 
 
 func _process(_delta: float) -> void:

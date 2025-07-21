@@ -68,7 +68,7 @@ tracks/1/path = NodePath("Spear:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.133334, 0.200001, 0.266667, 0.333334, 0.400001),
+"times": PackedFloat32Array(0.174022, 0.240689, 0.307355, 0.372796, 0.433333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4]
@@ -80,7 +80,7 @@ tracks/2/path = NodePath("Spear:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.133333, 0.466667),
+"times": PackedFloat32Array(0, 0.174021, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -92,7 +92,7 @@ tracks/3/path = NodePath("Hurtbox")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.166667, 0.333333),
+"times": PackedFloat32Array(0, 0.233333, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],

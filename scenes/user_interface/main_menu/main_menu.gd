@@ -1,9 +1,10 @@
 extends CanvasLayer
 class_name MainMenu
 
-const display_time := 0.01
+const limit_to_transition := 1.2
 
 var in_controls := false
+var value_progress := 0.0
 
 @onready var music := $AudioStreamPlayer as AudioStreamPlayer
 
@@ -15,6 +16,8 @@ var in_controls := false
 @onready var monologue := %Monologue as Label
 
 func _ready() -> void:
+	GameplaysTracker.gameplay_counter = 0
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	music.play()
 	title.visible = true
 	controls.visible = false
@@ -29,12 +32,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if in_controls:
 		var multiplier := 0.1
-		if Input.is_action_pressed("fire"):
+		if Input.is_anything_pressed():
 			multiplier = 0.2
-		else:
-			monologue.visible_ratio += minf(delta*multiplier, \
-				1.0)
-		print(multiplier)
+		monologue.visible_ratio += minf(delta*multiplier, 1.0)
+		value_progress += delta*multiplier
+	if limit_to_transition <= value_progress:
+		get_tree().change_scene_to_file("res://scenes/gameplay/stage_gameplay/stage_gameplay.tscn")
 
 
 func _ready_title() -> void:

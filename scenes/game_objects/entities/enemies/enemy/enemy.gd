@@ -29,7 +29,7 @@ func _ready() -> void:
 	sfx_timer.timeout.connect(_on_sfx_timer_timeout)
 	death_sfx.finished.connect(queue_free)
 	
-	initialize_behaviour(get_tree().get_first_node_in_group("player"))
+	#initialize_behaviour(get_tree().get_first_node_in_group("player"))
 
 
 func _process(_delta: float) -> void:

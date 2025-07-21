@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dceci6vpk2lu1"]
+
+[ext_resource type="Texture2D" uid="uid://draur5rq5dedg" path="res://scenes/game_objects/light_sources/torch/torch.png" id="1_dqnb6"]
+
+[node name="Torch" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(2.99996, 0.0144976, -0.0043352, -0.0144977, 2.99996, -1.53407e-05, 0.00433507, 3.62906e-05, 3, 0, 0, 0)
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_dqnb6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0.881822, 0.696322, 1)
+light_energy = 2.0
+omni_range = 12.0

@@ -11,9 +11,9 @@ var play_next : bool
 
 
 func _ready() -> void:
-	currently_playing = beginning
-	next = middle
-	play_next = true
+	currently_playing = middle
+	next = end
+	play_next = false
 	
 	currently_playing.play()
 	beginning.finished.connect(_handle_transition)
@@ -21,8 +21,8 @@ func _ready() -> void:
 
 
 func _handle_transition() -> void:
-	print("transition")
 	if not play_next:
+		currently_playing.play()
 		return
 	
 	currently_playing.stop()
